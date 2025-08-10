@@ -17,7 +17,7 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 262 83% 55%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -26,8 +26,8 @@ All colors MUST be HSL.
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 330 81% 60%;
+    --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -35,6 +35,13 @@ All colors MUST be HSL.
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
+
+    /* Extended tokens for colorful theme */
+    --primary-glow: 262 100% 70%;
+    --accent-glow: 330 100% 72%;
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(292 84% 61%));
+    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.3);
+    --shadow-glow: 0 0 40px hsl(var(--accent) / 0.35);
 
     --radius: 0.5rem;
 
@@ -107,8 +114,18 @@ All colors MUST be HSL.
 @layer utilities {
   .bg-hero {
     background-image:
-      radial-gradient(1200px 400px at 50% -100px, hsl(var(--primary) / 0.12), transparent),
-      radial-gradient(800px 200px at 10% 0%, hsl(var(--accent) / 0.18), transparent),
-      radial-gradient(800px 200px at 90% 0%, hsl(var(--accent) / 0.18), transparent);
+      radial-gradient(1200px 400px at 50% -100px, hsl(var(--primary) / 0.16), transparent),
+      radial-gradient(900px 300px at 0% 0%, hsl(var(--accent) / 0.22), transparent),
+      radial-gradient(900px 300px at 100% 0%, hsl(var(--accent) / 0.22), transparent);
+  }
+  .text-gradient {
+    background-image: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .hover-scale { @apply transition-transform duration-200 hover:scale-105; }
+  .story-link * {
+    @apply relative inline-block after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left;
   }
 }

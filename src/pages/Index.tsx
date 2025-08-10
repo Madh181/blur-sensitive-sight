@@ -161,7 +161,7 @@ const Index: React.FC = () => {
       <section className="bg-hero">
         <div className="container mx-auto py-16">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-gradient font-playfair animate-enter">
               Screenshot Anonymizer
             </h1>
             <p className="text-lg text-muted-foreground mb-8">
@@ -176,7 +176,7 @@ const Index: React.FC = () => {
                   onChange={handleFileChange}
                   aria-label="Choose an image file"
                 />
-                <Button onClick={anonymize} disabled={!imageURL || processing} className="shrink-0">
+                <Button variant="hero" onClick={anonymize} disabled={!imageURL || processing} className="shrink-0">
                   <ScanText className="mr-2 h-4 w-4" />
                   {processing ? `Analyzing ${progress}%` : "Anonymize"}
                 </Button>
